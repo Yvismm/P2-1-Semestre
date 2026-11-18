@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Adapta o site ao tamanho da tela -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Página Inicial</title>
+
+    <!-- CSS exclusivo desta página -->
+    <link rel="stylesheet" href="/home.css">
+</head>
+
+<body>
+
+    <main>
+
+        <!-- ============================= -->
+        <!-- TÍTULO COM EJS -->
+        <!-- ============================= -->
+
+        <!-- O título vem do server.js -->
+
+        <h1><%= titulo %></h1>
+
+
+        <!-- ============================= -->
+        <!-- IFRAME -->
+        <!-- ============================= -->
+
+        <!--
+            O enunciado pede imagem ou iframe.
+
+            ALTERAR:
+            Você pode trocar este iframe
+            por uma imagem com <img>.
+        -->
+
+        <iframe
+            title="Exemplo de iframe"
+            srcdoc="<h2>Meu site</h2><p>Exemplo de iframe</p>">
+        </iframe>
+
+
+        <!-- ============================= -->
+        <!-- LISTA COM EJS -->
+        <!-- ============================= -->
+
+        <h2>Lista de conteúdos</h2>
+
+        <ul>
+
+            <!-- Percorre os itens do server.js -->
+
+            <% itens.forEach(item => { %>
+
+                <li><%= item %></li>
+
+            <% }) %>
+
+        </ul>
+
+
+        <!-- ============================= -->
+        <!-- CRIAR PESSOA -->
+        <!-- ============================= -->
+
+        <h2>Criar pessoa</h2>
+
+        <!--
+            O mesmo formulário possui
+            dois botões: GET e POST.
+
+            GET envia informações na URL.
+            POST envia no corpo da requisição.
+
+            Os dois salvam no MongoDB.
+        -->
+
+        <form action="/criar" method="POST">
+
+            <label for="nome">Nome:</label>
+
+            <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Digite seu nome"
+                required
+            >
+
+            <label for="email">Email:</label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Digite seu email"
+                required
+            >
+
+            <!-- BOTÕES DE CADASTRO -->
+
+            <div class="botoes">
+
+                <!-- Envia o formulário por GET -->
+                <button
+                    type="submit"
+                    formaction="/criar"
+                    formmethod="GET">
+                    Criar GET
+                </button>
+
+                <!-- Envia o formulário por POST -->
+                <button
+                    type="submit"
+                    formaction="/criar"
+                    formmethod="POST">
+                    Criar POST
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <!-- ============================= -->
+        <!-- CONSULTAR PESSOAS -->
+        <!-- ============================= -->
+
+        <h2>Consultar pessoas</h2>
+
+        <!--
+            GET e POST consultam o banco.
+
+            O campo "tipo" determina
+            qual operação será executada.
+        -->
+
+        <form action="/consultar" method="GET">
+
+            <label for="tipo">
+                Tipo de consulta:
+            </label>
+
+            <select name="tipo" id="tipo">
+
+                <!-- FIND() -->
+                <option value="todos">
+                    Buscar todas as pessoas
+                </option>
+
+                <!-- FIND({nome}) -->
+                <option value="nome">
+                    Buscar por nome
+                </option>
+
+                <!-- LIMIT(5) -->
+                <option value="limite">
+                    Mostrar até 5 pessoas
+                </option>
+
+                <!-- SORT({nome: 1}) -->
+                <option value="az">
+                    Ordenar A-Z
+                </option>
+
+                <!-- SORT({nome: -1}) -->
+                <option value="za">
+                    Ordenar Z-A
+                </option>
+
+                <!-- FINDONE() -->
+                <option value="um">
+                    Buscar uma pessoa
+                </option>
+
+            </select>
+
+
+            <!-- NOME PARA BUSCA -->
+
+            <label for="nomeBusca">
+                Nome para buscar:
+            </label>
+
+            <input
+                type="text"
+                id="nomeBusca"
+                name="nome"
+                placeholder="Exemplo: Ana"
+            >
+
+            <!-- BOTÕES DE CONSULTA -->
+
+            <div class="botoes">
+
+                <!-- Consulta por GET -->
+                <button
+                    type="submit"
+                    formaction="/consultar"
+                    formmethod="GET">
+                    Consultar GET
+                </button>
+
+                <!-- Consulta por POST -->
+                <button
+                    type="submit"
+                    formaction="/consultar"
+                    formmethod="POST">
+                    Consultar POST
+                </button>
+
+            </div>
+
+        </form>
+
+    </main>
+
+</body>
+</html>

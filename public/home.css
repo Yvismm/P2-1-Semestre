@@ -1,0 +1,117 @@
+
+/* ================================= */
+/* ESTILO DA PÁGINA HOME */
+/* ================================= */
+
+body {
+
+    /* ALTERAR: cor de fundo */
+    background: white;
+
+    /* ALTERAR: fonte */
+    font-family: Arial, sans-serif;
+
+    /* Cor do texto */
+    color: black;
+
+    margin: 20px;
+}
+
+/* Área principal */
+main {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Títulos */
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+/* Iframe */
+iframe {
+    width: 100%;
+    max-width: 350px;
+    height: 150px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+}
+
+/* Lista */
+li {
+    margin-bottom: 8px;
+}
+
+/* Formulários */
+form {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 25px;
+}
+
+/* Texto dos campos */
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+/* Campos */
+input, select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid gray;
+    background: white;
+}
+
+/* Área dos dois botões */
+.botoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Botões */
+button {
+    padding: 10px 15px;
+    background: #eeeeee;
+    color: black;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+/* Efeito ao passar o mouse */
+button:hover {
+    background: #dddddd;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+
+    body {
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}

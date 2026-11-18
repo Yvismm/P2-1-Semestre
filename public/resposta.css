@@ -1,0 +1,74 @@
+
+/* ================================= */
+/* ESTILO DA PÁGINA RESPOSTA */
+/* ================================= */
+
+body {
+    background: white;
+    color: black;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+/* Área principal */
+main {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Títulos */
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+/* Lista */
+ul {
+    padding-left: 25px;
+}
+
+li {
+    margin-bottom: 12px;
+    overflow-wrap: anywhere;
+}
+
+/* Botão voltar */
+button {
+    background: #eeeeee;
+    color: black;
+    padding: 10px 15px;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #dddddd;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+
+    body {
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+}

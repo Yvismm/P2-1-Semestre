@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Responsividade -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Resultado</title>
+
+    <!-- CSS exclusivo desta página -->
+    <link rel="stylesheet" href="/resposta.css">
+</head>
+
+<body>
+
+    <main>
+
+        <!-- ============================= -->
+        <!-- TÍTULO -->
+        <!-- ============================= -->
+
+        <h1>Resultado</h1>
+
+
+        <!-- ============================= -->
+        <!-- MÉTODO UTILIZADO -->
+        <!-- ============================= -->
+
+        <!--
+            A variável metodo vem do servidor.
+
+            Pode mostrar GET ou POST.
+        -->
+
+        <h2>Método utilizado: <%= metodo %></h2>
+
+
+        <!-- ============================= -->
+        <!-- TIPO DE OPERAÇÃO -->
+        <!-- ============================= -->
+
+        <h3><%= consulta %></h3>
+
+
+        <!-- ============================= -->
+        <!-- RESULTADOS DO MONGODB -->
+        <!-- ============================= -->
+
+        <ul>
+
+            <!-- Verifica se existem resultados -->
+
+            <% if (pessoas.length > 0) { %>
+
+                <!-- Percorre os registros -->
+
+                <% pessoas.forEach(pessoa => { %>
+
+                    <li>
+
+                        <!-- Mostra o nome -->
+                        Nome: <%= pessoa.nome %>
+
+                        |
+
+                        <!-- Mostra o email -->
+                        Email: <%= pessoa.email %>
+
+                        <!--
+                            ADICIONAR:
+                            Para mostrar idade:
+
+                            | Idade: <%= pessoa.idade %>
+                        -->
+
+                    </li>
+
+                <% }) %>
+
+            <% } else { %>
+
+                <li>
+                    Nenhuma pessoa encontrada.
+                </li>
+
+            <% } %>
+
+        </ul>
+
+
+        <!-- ============================= -->
+        <!-- BOTÃO VOLTAR -->
+        <!-- ============================= -->
+
+        <form action="/home.ejs" method="GET">
+
+            <button type="submit">
+                Voltar
+            </button>
+
+        </form>
+
+    </main>
+
+</body>
+</html>
